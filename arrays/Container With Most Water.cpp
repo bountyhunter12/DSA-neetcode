@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+    int maxArea(vector<int>& heights) {
+        int i =0; 
+        int j = heights.size() -1;
+        int mx = 0;
+        while(i < j){
+            int h =  min(heights[i], heights[j]);
+            int w = j - i;
+            int x = h*w;
+
+            mx = max(x,mx);
+
+            if(heights[i] < heights[j])
+            i++;
+            else
+            j--;
+        }
+
+        return mx;
+    }
+};
